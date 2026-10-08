@@ -1,0 +1,31 @@
+# Non-secret settings (safe to commit). Secrets live in .env.
+
+data_dir = "data"
+
+[limits]
+max_pages = 60
+max_upload_mb = 25
+top_k = 6
+
+[ingestion]
+# Used at upload time to describe charts/diagrams and OCR scanned pages.
+vision_model = "qwen/qwen3.8-27b"
+embedding_model = "sentence-transformers/all-MiniLM-L6-v2"
+pinecone_index_name = "report-chat-rag"
+
+# Models users can pick in the chat UI. Add/remove/replace freely:
+# any Groq model id works. vision=true means it can look at chart/diagram
+# images directly; false means it answers from text + the stored image captions.
+[[models]]
+key = "fast"
+label = "Fast - GPT-OSS 20B"
+id = "openai/gpt-oss-20b"
+vision = false
+description = "Quicker answers from text, tables and chart descriptions."
+
+[[models]]
+key = "vision"
+label = "Visual - Qwen3.8 27B"
+id = "qwen/qwen3.8-27b"
+vision = true
+description = "Also looks at the charts and diagrams directly. Slower, better for visual questions."

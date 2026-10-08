@@ -1,0 +1,17 @@
+fastapi
+uvicorn[standard]
+python-multipart
+python-dotenv
+langchain
+langchain-core
+langchain-groq
+langchain-huggingface
+langchain-pinecone
+langchain-text-splitters
+pinecone
+sentence-transformers
+pymupdf
+groq
+pandas
+tabulate
+pillow
